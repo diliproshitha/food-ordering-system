@@ -19,6 +19,8 @@ import com.food.ordering.system.order.service.domain.valueobject.TrackingId;
 
 public class Order extends AggregateRoot<OrderId> {
 
+  public static final String FAILURE_MESSAGE_DELIMITER = ",";
+
   private final CustomerId customerId;
   private final RestaurantId restaurantId;
   private final StreetAddress deliverAddress;
