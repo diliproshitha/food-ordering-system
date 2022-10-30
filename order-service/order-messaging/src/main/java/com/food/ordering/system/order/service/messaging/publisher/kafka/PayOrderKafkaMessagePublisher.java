@@ -2,8 +2,9 @@ package com.food.ordering.system.order.service.messaging.publisher.kafka;
 
 import org.springframework.stereotype.Component;
 
-import com.food.ordering.system.kafka.consumer.service.KafkaProducer;
+import com.food.ordering.system.kafka.producer.service.KafkaProducer;
 import com.food.ordering.system.kafka.order.avro.model.RestaurantApprovalRequestAvroModel;
+import com.food.ordering.system.kafka.producer.service.KafkaMessageHelper;
 import com.food.ordering.system.order.service.domain.config.OrderServiceConfigData;
 import com.food.ordering.system.order.service.domain.event.OrderPaidEvent;
 import com.food.ordering.system.order.service.domain.ports.outputs.message.publisher.restaurantapproval.OrderPaidRestaurantRequestMessagePublisher;
@@ -20,7 +21,7 @@ public class PayOrderKafkaMessagePublisher implements OrderPaidRestaurantRequest
   private final OrderMessagingDataMapper orderMessagingDataMapper;
   private final OrderServiceConfigData orderServiceConfigData;
   private final KafkaProducer<String, RestaurantApprovalRequestAvroModel> kafkaProducer;
-  private final OrderKafkaMessageHelper orderKafkaMessageHelper;
+  private final KafkaMessageHelper kafkaMessageHelper;
 
   @Override
   public void publish(OrderPaidEvent domainEvent) {
@@ -33,7 +34,7 @@ public class PayOrderKafkaMessagePublisher implements OrderPaidRestaurantRequest
       kafkaProducer.send(orderServiceConfigData.getRestaurantApprovalRequestTopicName(),
           orderId,
           restaurantApprovalRequestAvroModel,
-          orderKafkaMessageHelper.getKafkaCallback(orderServiceConfigData
+          kafkaMessageHelper.getKafkaCallback(orderServiceConfigData
               .getPaymentResponseTopicName(), restaurantApprovalRequestAvroModel, orderId,
               RestaurantApprovalRequestAvroModel.class.getName()));
     } catch (Exception e) {

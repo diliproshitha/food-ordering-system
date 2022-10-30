@@ -9,7 +9,7 @@ import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.stereotype.Component;
 
 import com.food.ordering.system.domain.valueobject.PaymentStatus;
-import com.food.ordering.system.kafka.consumer.KafkaConsumer;
+import com.food.ordering.system.kafka.producer.KafkaConsumer;
 import com.food.ordering.system.kafka.order.avro.model.PaymentResponseAvroModel;
 import com.food.ordering.system.order.service.domain.ports.inputs.message.listener.payment.PaymentResponseMessageListener;
 import com.food.ordering.system.order.service.messaging.mapper.OrderMessagingDataMapper;

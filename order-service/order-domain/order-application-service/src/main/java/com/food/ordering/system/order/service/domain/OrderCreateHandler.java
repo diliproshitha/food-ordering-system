@@ -14,14 +14,17 @@ import com.food.ordering.system.order.service.domain.entity.Restaurant;
 import com.food.ordering.system.order.service.domain.event.OrderCreatedEvent;
 import com.food.ordering.system.order.service.domain.exception.OrderDomainException;
 import com.food.ordering.system.order.service.domain.mapper.OrderDataMapper;
+import com.food.ordering.system.order.service.domain.ports.outputs.message.publisher.payment.OrderCreatedPaymentRequestMessagePublisher;
 import com.food.ordering.system.order.service.domain.ports.outputs.repository.CustomerRepository;
 import com.food.ordering.system.order.service.domain.ports.outputs.repository.OrderRepository;
 import com.food.ordering.system.order.service.domain.ports.outputs.repository.RestaurantRepository;
 
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Component
+@RequiredArgsConstructor
 public class OrderCreateHandler {
 
   private final OrderDomainService orderDomainService;
@@ -29,16 +32,7 @@ public class OrderCreateHandler {
   private final CustomerRepository customerRepository;
   private final RestaurantRepository restaurantRepository;
   private final OrderDataMapper orderDataMapper;
-
-  public OrderCreateHandler(OrderDomainService orderDomainService, OrderRepository orderRepository,
-      CustomerRepository customerRepository, RestaurantRepository restaurantRepository,
-      OrderDataMapper orderDataMapper) {
-    this.orderDomainService = orderDomainService;
-    this.orderRepository = orderRepository;
-    this.customerRepository = customerRepository;
-    this.restaurantRepository = restaurantRepository;
-    this.orderDataMapper = orderDataMapper;
-  }
+  private final OrderCreatedPaymentRequestMessagePublisher orderCreatedEventDomainEventPublisher;
 
   @Transactional
   public OrderCreatedEvent persistOrder(CreateOrderCommand createOrderCommand) {
@@ -46,7 +40,7 @@ public class OrderCreateHandler {
     Restaurant restaurant = checkRestaurant(createOrderCommand);
     Order order = orderDataMapper.createOrderCommandToOrder(createOrderCommand);
     OrderCreatedEvent orderCreatedEvent = orderDomainService.validateAndInitiateOrder(order,
-        restaurant);
+        restaurant, orderCreatedEventDomainEventPublisher);
     saveOrder(order);
     return orderCreatedEvent;
   }

@@ -8,7 +8,7 @@ import org.springframework.messaging.handler.annotation.Header;
 import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.stereotype.Component;
 
-import com.food.ordering.system.kafka.consumer.KafkaConsumer;
+import com.food.ordering.system.kafka.producer.KafkaConsumer;
 import com.food.ordering.system.kafka.order.avro.model.OrderApprovalStatus;
 import com.food.ordering.system.kafka.order.avro.model.RestaurantApprovalResponseAvroModel;
 import com.food.ordering.system.order.service.domain.entity.Order;
