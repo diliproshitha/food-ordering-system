@@ -93,7 +93,7 @@ public class OrderMessagingDataMapper {
         .id(restaurantApprovalResponseAvroModel.getId())
         .sagaId(restaurantApprovalResponseAvroModel.getSagaId())
         .restaurantId(restaurantApprovalResponseAvroModel.getRestaurantId())
-        .orderId(restaurantApprovalResponseAvroModel.getRestaurantId())
+        .orderId(restaurantApprovalResponseAvroModel.getOrderId())
         .createdAt(restaurantApprovalResponseAvroModel.getCreatedAt())
         .orderApprovalStatus(com.food.ordering.system.domain.valueobject.OrderApprovalStatus.valueOf(
             restaurantApprovalResponseAvroModel.getOrderApprovalStatus().name()

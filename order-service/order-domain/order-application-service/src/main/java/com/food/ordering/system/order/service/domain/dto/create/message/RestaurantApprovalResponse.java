@@ -6,8 +6,10 @@ import java.util.List;
 import com.food.ordering.system.domain.valueobject.OrderApprovalStatus;
 
 import lombok.Builder;
+import lombok.Getter;
 
 @Builder
+@Getter
 public class RestaurantApprovalResponse {
 
   private String id;

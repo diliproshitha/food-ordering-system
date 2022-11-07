@@ -1,0 +1,57 @@
+{
+	"info": {
+		"_postman_id": "503db005-580c-4464-9d62-b8939395593c",
+		"name": "food-ordering-system",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "orders",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"customerId\": \"c4ac66fc-4f28-488c-86ec-7d54664e2fcb\",\r\n    \"restaurantId\": \"89ba169a-2504-46b0-ba8a-48749b784f4e\",\r\n    \"address\": {\r\n        \"street\": \"street_1\",\r\n        \"postalCode\": \"1000AB\",\r\n        \"city\": \"Amsterdam\"\r\n    },\r\n    \"price\": 500.00,\r\n    \"items\": [\r\n        {\r\n            \"productId\": \"e70ea73b-47f9-4fff-b5d3-1074d172552e\",\r\n            \"quantity\": 10,\r\n            \"price\": 50.00,\r\n            \"subTotal\": 500.00\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8181/orders",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8181",
+					"path": [
+						"orders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get-order-by-id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8181/orders/0037b62c-62e1-4c4e-853e-be655198e531",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8181",
+					"path": [
+						"orders",
+						"0037b62c-62e1-4c4e-853e-be655198e531"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
