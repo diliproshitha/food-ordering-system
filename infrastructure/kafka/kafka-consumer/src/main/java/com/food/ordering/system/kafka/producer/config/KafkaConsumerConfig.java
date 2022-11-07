@@ -17,6 +17,7 @@ import org.springframework.kafka.listener.ConcurrentMessageListenerContainer;
 import com.food.ordering.system.kafka.config.data.KafkaConfigData;
 import com.food.ordering.system.kafka.config.data.KafkaConsumerConfigData;
 
+import io.confluent.kafka.serializers.KafkaAvroDeserializerConfig;
 import lombok.RequiredArgsConstructor;
 
 @Configuration
@@ -42,6 +43,7 @@ public class KafkaConsumerConfig<K extends Serializable, V extends SpecificRecor
         kafkaConsumerConfigData.getMaxPartitionFetchBytesDefault() *
         kafkaConsumerConfigData.getMaxPartitionFetchBytesBoostFactor());
     props.put(ConsumerConfig.MAX_POLL_RECORDS_CONFIG, kafkaConsumerConfigData.getMaxPollRecords());
+    props.put(KafkaAvroDeserializerConfig.SPECIFIC_AVRO_READER_CONFIG, true);
     return props;
   }
 
