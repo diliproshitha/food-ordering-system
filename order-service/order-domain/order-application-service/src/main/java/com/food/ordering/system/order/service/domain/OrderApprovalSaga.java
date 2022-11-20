@@ -34,9 +34,9 @@ public class OrderApprovalSaga implements SagaStep<RestaurantApprovalResponse> {
 
   private final OrderDomainService orderDomainService;
   private final OrderSagaHelper orderSagaHelper;
-  private PaymentOutboxHelper paymentOutboxHelper;
-  private OrderDataMapper orderDataMapper;
-  private ApprovalOutboxHelper approvalOutboxHelper;
+  private final PaymentOutboxHelper paymentOutboxHelper;
+  private final  OrderDataMapper orderDataMapper;
+  private final ApprovalOutboxHelper approvalOutboxHelper;
 
   @Override
   @Transactional
