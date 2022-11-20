@@ -8,16 +8,8 @@ import com.food.ordering.system.payment.service.domain.entity.Payment;
 
 public class PaymentCompletedEvent extends PaymentEvent {
 
-  private final DomainEventPublisher<PaymentCompletedEvent> paymentCompletedEventDomainEventPublisher;
-
-  public PaymentCompletedEvent(Payment payment, ZonedDateTime createdAt,
-      DomainEventPublisher<PaymentCompletedEvent> paymentCompletedEventDomainEventPublisher) {
+  public PaymentCompletedEvent(Payment payment, ZonedDateTime createdAt) {
     super(payment, createdAt, Collections.emptyList());
-    this.paymentCompletedEventDomainEventPublisher = paymentCompletedEventDomainEventPublisher;
   }
 
-  @Override
-  public void fire() {
-    paymentCompletedEventDomainEventPublisher.publish(this);
-  }
 }
