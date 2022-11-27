@@ -4,8 +4,7 @@ import static com.food.ordering.system.order.service.domain.entity.Order.FAILURE
 
 import org.springframework.stereotype.Component;
 
-import com.food.ordering.system.order.service.domain.dto.create.message.PaymentResponse;
-import com.food.ordering.system.order.service.domain.event.OrderPaidEvent;
+import com.food.ordering.system.order.service.domain.dto.message.PaymentResponse;
 import com.food.ordering.system.order.service.domain.ports.inputs.message.listener.payment.PaymentResponseMessageListener;
 
 import lombok.RequiredArgsConstructor;

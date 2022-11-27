@@ -1,4 +1,4 @@
-package com.food.ordering.system.order.service.domain.dto.create.message;
+package com.food.ordering.system.order.service.domain.dto.message;
 
 import java.time.Instant;
 import java.util.List;

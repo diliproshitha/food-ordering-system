@@ -1,6 +1,6 @@
 package com.food.ordering.system.order.service.domain.ports.inputs.message.listener.restaurantapproval;
 
-import com.food.ordering.system.order.service.domain.dto.create.message.RestaurantApprovalResponse;
+import com.food.ordering.system.order.service.domain.dto.message.RestaurantApprovalResponse;
 
 public interface RestaurantApprovalResponseMessageListener {
 
