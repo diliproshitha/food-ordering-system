@@ -21,7 +21,7 @@ import org.springframework.test.context.jdbc.Sql.ExecutionPhase;
 import com.food.ordering.system.domain.valueobject.PaymentStatus;
 import com.food.ordering.system.order.service.dataaccess.outbox.payment.entity.PaymentOutboxEntity;
 import com.food.ordering.system.order.service.dataaccess.outbox.payment.repository.PaymentOutboxJpaRepository;
-import com.food.ordering.system.order.service.domain.dto.create.message.PaymentResponse;
+import com.food.ordering.system.order.service.domain.dto.message.PaymentResponse;
 import com.food.ordering.system.saga.SagaStatus;
 
 import lombok.extern.slf4j.Slf4j;

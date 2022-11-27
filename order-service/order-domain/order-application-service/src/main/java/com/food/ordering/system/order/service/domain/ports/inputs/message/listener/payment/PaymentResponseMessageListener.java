@@ -1,6 +1,6 @@
 package com.food.ordering.system.order.service.domain.ports.inputs.message.listener.payment;
 
-import com.food.ordering.system.order.service.domain.dto.create.message.PaymentResponse;
+import com.food.ordering.system.order.service.domain.dto.message.PaymentResponse;
 
 public interface PaymentResponseMessageListener {
 
