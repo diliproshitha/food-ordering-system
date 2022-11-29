@@ -5,8 +5,7 @@ import static com.food.ordering.system.order.service.domain.entity.Order.FAILURE
 import org.springframework.stereotype.Service;
 import org.springframework.validation.annotation.Validated;
 
-import com.food.ordering.system.order.service.domain.dto.create.message.RestaurantApprovalResponse;
-import com.food.ordering.system.order.service.domain.event.OrderCancelledEvent;
+import com.food.ordering.system.order.service.domain.dto.message.RestaurantApprovalResponse;
 import com.food.ordering.system.order.service.domain.ports.inputs.message.listener.restaurantapproval.RestaurantApprovalResponseMessageListener;
 
 import lombok.RequiredArgsConstructor;

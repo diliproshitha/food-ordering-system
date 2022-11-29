@@ -1,5 +1,5 @@
 server:
-  port: 8181
+  port: 8184
 
 customer-service:
   customer-topic-name: customer
@@ -23,7 +23,7 @@ spring:
     driver-class-name: org.postgresql.Driver
     platform: postgres
     schema: classpath:init-schema.sql
-    data: classpath:init-data.sql
+#    data: classpath:init-data.sql
     initialization-mode: always
 
 kafka-config:
