@@ -31,7 +31,7 @@ You can clearly see that in the dependency graph most independent component is d
 ### How services are interacted with each other?
 Apache Kafka is used as the message-broker to build the event-driven architecture across all services. You can find the configurations and avro models related to kafka in `infrastructure/kafka` directory.
 
-![Alt text](system-overview.svg?raw=true "System overview")
+![Alt text](system-overview.png?raw=true "System overview")
 
 #### Main design principles
 
